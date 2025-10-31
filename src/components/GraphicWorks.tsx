@@ -1,0 +1,95 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Video from "yet-another-react-lightbox/plugins/video";
+import "yet-another-react-lightbox/styles.css";
+
+const works = [
+  { image: "/works/13.jpg", video: "/videos/13.MP4" },
+  { image: "/works/15.jpg", video: "/videos/15.MP4" },
+  { image: "/works/17.jpg", video: "/videos/corporate.mp4" },
+  { image: "/works/19.jpg", video: "/videos/character.mp4" },
+  { image: "/works/21.jpg", video: "/videos/poster.mp4" },
+  { image: "/works/22.jpg", video: "/videos/iconset1.mp4" },
+  { image: "/works/24.jpg", video: "/videos/iconset2.mp4" },
+];
+
+export default function GraphicWorks() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  return (
+    <section id="works" className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-800 to-gray-900" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
+        {/* Başlık ve alt başlık */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Grafik Çalışmalarım
+            </span>
+          </h2>
+          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Bir dizi illüstrasyon, logo ve yaratıcı tasarım çalışması
+          </p>
+        </motion.div>
+
+        {/* Görseller */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {works.map((work, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group relative cursor-pointer"
+              onClick={() => setLightboxIndex(index)}
+            >
+              <div className="relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
+                <div className="aspect-square relative overflow-hidden">
+                  <motion.img
+                    src={work.image}
+                    alt={`Work ${index + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                    <span className="text-white font-semibold text-lg">İzle ▶</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <Lightbox
+          open={lightboxIndex !== null}
+          close={() => setLightboxIndex(null)}
+          slides={works.map((work) => ({
+            type: "video",
+            sources: [{ src: work.video, type: "video/mp4" }],
+            width: 1280,
+            height: 720,
+          }))}
+          index={lightboxIndex}
+          plugins={[Video]}
+        />
+      )}
+    </section>
+  );
+}
