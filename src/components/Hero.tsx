@@ -8,26 +8,24 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
     >
-      <div className="absolute inset-0 bg-linear-to-br from-cyan-500/20 via-blue-500/20 to-gray-900/40" />
-
-      {/* Arka plan partikülleri */}
+      {/* Arka plan partikülleri - minimal white dots */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+            className="absolute w-1 h-1 bg-white/90 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              scale: [1, 2, 1],
-              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.5, 1],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: Math.random() * 4 + 3,
               repeat: Infinity,
               delay: Math.random() * 2,
             }}
@@ -44,8 +42,8 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="flex items-center justify-center mb-6"
         >
-          <Sparkles className="text-cyan-400 mr-2" size={24} />
-          <span className="text-cyan-400 text-xl md:text-2xl">
+          <Sparkles className="text-white mr-2" size={24} />
+          <span className="text-gray-300 text-xl md:text-2xl font-light">
             <Typewriter
               words={["Grafik Tasarımcı", "Kurucu", "Sosyal Medya Yöneticisi"]}
               loop={true}
@@ -62,18 +60,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold mb-6"
+          className="text-6xl md:text-8xl font-bold mb-6 text-white tracking-tight"
         >
-          <span className="bg-linear-to-r from-white via-cyan-200 to-blue-300 bg-clip-text text-transparent">
-            Sallabi
-          </span>
+          Sallabi
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light"
         >
           Yaratıcı çözümler sunan çok yönlü bir grafik tasarımcı ve dijital içerik üreticisi.
         </motion.p>
@@ -86,14 +82,14 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center relative"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, opacity: 0.9 }}
             whileTap={{ scale: 0.95 }}
             onClick={() =>
               document
                 .getElementById("works")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-4 bg-linear-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/60 transition-all"
+            className="px-8 py-4 bg-white text-black rounded-full font-medium transition-all"
           >
             Çalışmalarımı Görüntüle
           </motion.button>
@@ -106,7 +102,7 @@ export default function Hero() {
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-4 bg-gray-800 text-white rounded-full font-semibold border border-gray-700 hover:bg-gray-700 transition-all"
+            className="px-8 py-4 bg-transparent text-white rounded-full font-medium border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all"
           >
             İletişime Geçin
           </motion.button>
@@ -122,7 +118,7 @@ export default function Hero() {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <ArrowDown className="text-cyan-400" size={32} />
+              <ArrowDown className="text-white/40" size={32} />
             </motion.div>
           </motion.div>
         </motion.div>

@@ -21,9 +21,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-800 to-gray-900" />
-
+    <section id="contact" className="py-20 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -31,13 +29,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              İletişime Geçin
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            İletişime Geçin
           </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-px bg-white mx-auto mb-8" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
             Bir projeniz mi var? Hadi işbirliği yapalım ve birlikte harika bir şey yaratalım
           </p>
         </motion.div>
@@ -50,7 +46,7 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">İletişim Bilgileri</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">İletişim Bilgileri</h3>
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -60,13 +56,13 @@ export default function Contact() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                     whileHover={{ scale: 1.02, x: 10 }}
-                    className="flex items-center gap-4 p-4 bg-linear-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-xl hover:border-cyan-500/50 transition-all"
+                    className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:border-white/30 transition-all"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0">
-                      <info.icon className="text-white" size={20} />
+                    <div className="w-12 h-12 rounded-lg bg-white flex items-center justify-center shrink-0">
+                      <info.icon className="text-black" size={20} />
                     </div>
                     <div>
-                      <div className="text-gray-400 text-sm">{info.label}</div>
+                      <div className="text-gray-400 text-sm font-medium">{info.label}</div>
                       <div className="text-white font-medium">{info.value}</div>
                     </div>
                   </motion.a>
@@ -78,24 +74,24 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-linear-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-2xl p-8"
+              className="bg-white/5 border border-white/10 rounded-2xl p-8"
             >
-              <h4 className="text-xl font-bold text-white mb-4">Neden Benimle Çalışmalısınız?</h4>
+              <h4 className="text-xl font-bold text-white mb-4 tracking-tight">Neden Benimle Çalışmalısınız?</h4>
               <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-cyan-400 mt-1 shrink-0" size={18} />
+                <li className="flex items-start gap-2 font-light">
+                  <CheckCircle className="text-white mt-1 shrink-0" size={18} />
                   <span>Hızlı geri dönüş ve güvenilir iletişim</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-cyan-400 mt-1 shrink-0" size={18} />
+                <li className="flex items-start gap-2 font-light">
+                  <CheckCircle className="text-white mt-1 shrink-0" size={18} />
                   <span>Markanıza özel tasarımlar</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-cyan-400 mt-1 shrink-0" size={18} />
+                <li className="flex items-start gap-2 font-light">
+                  <CheckCircle className="text-white mt-1 shrink-0" size={18} />
                   <span>Sonsuz revizyon, memnun kalana kadar</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="text-cyan-400 mt-1 shrink-0" size={18} />
+                <li className="flex items-start gap-2 font-light">
+                  <CheckCircle className="text-white mt-1 shrink-0" size={18} />
                   <span>Profesyonel ve yaratıcı yaklaşım</span>
                 </li>
               </ul>
@@ -116,7 +112,7 @@ export default function Contact() {
                   type="text"
                   id="name"
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
                   placeholder="John Doe"
                 />
               </div>
@@ -129,7 +125,7 @@ export default function Contact() {
                   type="email"
                   id="email"
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
                   placeholder="john@example.com"
                 />
               </div>
@@ -142,7 +138,7 @@ export default function Contact() {
                   type="text"
                   id="subject"
                   required
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all"
                   placeholder="Project Inquiry"
                 />
               </div>
@@ -155,19 +151,19 @@ export default function Contact() {
                   id="message"
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, opacity: 0.9 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all ${
+                className={`w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all ${
                   formSubmitted
-                    ? 'bg-green-500 text-white'
-                    : 'bg-linear-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40'
+                    ? 'bg-white text-black'
+                    : 'bg-white text-black'
                 }`}
               >
                 {formSubmitted ? (

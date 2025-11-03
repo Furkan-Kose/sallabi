@@ -24,9 +24,7 @@ export default function GraphicWorks() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   return (
-    <section id="works" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-800 to-gray-900" />
-
+    <section id="works" className="py-20 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         {/* Başlık ve alt başlık */}
         <motion.div
@@ -35,13 +33,11 @@ export default function GraphicWorks() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Grafik Çalışmalarım
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            Grafik Çalışmalarım
           </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-px bg-white mx-auto mb-8" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
             Bir dizi illüstrasyon, logo ve yaratıcı tasarım çalışması
           </p>
         </motion.div>
@@ -54,19 +50,19 @@ export default function GraphicWorks() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               className="group relative cursor-pointer"
               onClick={() => setLightboxIndex(index)}
             >
-              <div className="relative overflow-hidden rounded-2xl bg-gray-800 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300">
                 <div className="aspect-square relative overflow-hidden">
                   <motion.img
                     src={work.image}
                     alt={`Work ${index + 1}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                    <span className="text-white font-semibold text-lg">İzle ▶</span>
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                    <span className="text-white font-medium text-lg">İzle ▶</span>
                   </div>
                 </div>
               </div>

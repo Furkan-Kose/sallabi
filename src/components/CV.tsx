@@ -50,9 +50,7 @@ export default function CV() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="cv" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-800 to-gray-900" />
-
+    <section id="cv" className="py-20 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -60,19 +58,17 @@ export default function CV() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Özgeçmiş
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            Özgeçmiş
           </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-6">
+          <div className="w-24 h-px bg-white mx-auto mb-8" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-6 font-light">
             Mesleki geçmiş ve yeterlilikler
           </p>
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, opacity: 0.9 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-cyan-500 to-blue-500 text-white rounded-full font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-xl hover:shadow-cyan-500/40 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-medium transition-all"
           >
             <Download size={20} />
             CV İndir
@@ -86,10 +82,10 @@ export default function CV() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                <Briefcase className="text-white" size={24} />
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center">
+                <Briefcase className="text-black" size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Deneyim</h3>
+              <h3 className="text-2xl font-bold text-white tracking-tight">Deneyim</h3>
             </div>
 
             <div className="space-y-6">
@@ -99,13 +95,13 @@ export default function CV() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="relative pl-8 pb-8 border-l-2 border-gray-700 last:pb-0"
+                  className="relative pl-8 pb-8 border-l-2 border-white/20 last:pb-0"
                 >
-                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-linear-to-br from-cyan-500 to-blue-500" />
-                  <div className="text-cyan-400 text-sm font-medium mb-1">{exp.period}</div>
-                  <h4 className="text-xl font-bold text-white mb-1">{exp.title}</h4>
-                  <div className="text-gray-400 font-medium mb-2">{exp.company}</div>
-                  <p className="text-gray-500 text-sm whitespace-pre-line">{exp.description}</p>
+                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-white" />
+                  <div className="text-gray-300 text-sm font-medium mb-1">{exp.period}</div>
+                  <h4 className="text-xl font-bold text-white mb-1 tracking-tight">{exp.title}</h4>
+                  <div className="text-gray-300 font-medium mb-2">{exp.company}</div>
+                  <p className="text-gray-400 text-sm whitespace-pre-line font-light">{exp.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -117,10 +113,10 @@ export default function CV() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                <GraduationCap className="text-white" size={24} />
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center">
+                <GraduationCap className="text-black" size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-white">Eğitim</h3>
+              <h3 className="text-2xl font-bold text-white tracking-tight">Eğitim</h3>
             </div>
 
             <div className="space-y-6">
@@ -130,13 +126,13 @@ export default function CV() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className="relative pl-8 pb-8 border-l-2 border-gray-700 last:pb-0"
+                  className="relative pl-8 pb-8 border-l-2 border-white/20 last:pb-0"
                 >
-                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-linear-to-br from-cyan-500 to-blue-500" />
-                  <div className="text-cyan-400 text-sm font-medium mb-1">{edu.period}</div>
-                  <h4 className="text-xl font-bold text-white mb-1">{edu.degree}</h4>
-                  <div className="text-gray-400 font-medium mb-2">{edu.school}</div>
-                  <p className="text-gray-500 text-sm whitespace-pre-line">{edu.description}</p>
+                  <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-white" />
+                  <div className="text-gray-300 text-sm font-medium mb-1">{edu.period}</div>
+                  <h4 className="text-xl font-bold text-white mb-1 tracking-tight">{edu.degree}</h4>
+                  <div className="text-gray-300 font-medium mb-2">{edu.school}</div>
+                  <p className="text-gray-400 text-sm whitespace-pre-line font-light">{edu.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -148,13 +144,13 @@ export default function CV() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-linear-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                <Award className="text-white" size={20} />
+              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                <Award className="text-black" size={20} />
               </div>
-              <h3 className="text-xl font-bold text-white">Projeler</h3>
+              <h3 className="text-xl font-bold text-white tracking-tight">Projeler</h3>
             </div>
             <ul className="space-y-3">
               {projects.map((project, index) => (
@@ -163,9 +159,9 @@ export default function CV() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                  className="flex items-start gap-2 text-gray-300"
+                  className="flex items-start gap-2 text-gray-300 font-light"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-white mt-2 shrink-0" />
                   {project}
                 </motion.li>
               ))}
@@ -176,13 +172,13 @@ export default function CV() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="bg-linear-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                <Code className="text-white" size={20} />
+              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
+                <Code className="text-black" size={20} />
               </div>
-              <h3 className="text-xl font-bold text-white">Araçlar</h3>
+              <h3 className="text-xl font-bold text-white tracking-tight">Araçlar</h3>
             </div>
             <div className="flex flex-wrap gap-2">
               {tools.map((tool, index) => (
@@ -192,7 +188,7 @@ export default function CV() {
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.05 }}
                   whileHover={{ scale: 1.05 }}
-                  className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-full text-gray-300 text-sm font-medium hover:border-cyan-500/50 transition-all"
+                  className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-300 text-sm font-medium hover:bg-white/10 hover:border-white/20 transition-all"
                 >
                   {tool}
                 </motion.span>

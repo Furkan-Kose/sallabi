@@ -34,26 +34,27 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+              className="text-2xl font-bold text-white tracking-tight"
             >
               Sallabi
             </motion.div>
 
             <div className="hidden md:flex space-x-8">
               {menuItems.map((item) => (
-                <button
+                <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-300 hover:text-white transition-colors capitalize"
+                  className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                  whileHover={{ scale: 1.05 }}
                 >
                   {item.label}
-                </button>
+                </motion.button>
               ))}
             </div>
 
@@ -72,14 +73,14 @@ const Navbar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 bg-gray-900/95 backdrop-blur-lg md:hidden"
+          className="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg md:hidden"
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             {menuItems.map((item) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-3xl text-gray-300 hover:text-white transition-colors capitalize"
+                className="text-3xl text-gray-400 hover:text-white transition-colors capitalize font-medium"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -93,4 +94,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

@@ -53,9 +53,7 @@ export default function Organizations() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section id="organizations" className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-b from-gray-900 via-gray-800 to-gray-900" />
-
+    <section id="organizations" className="py-20 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -63,13 +61,11 @@ export default function Organizations() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Organizations & Collaborations
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            Organizations & Collaborations
           </h2>
-          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mb-8" />
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <div className="w-24 h-px bg-white mx-auto mb-8" />
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
             Events, partnerships, and community initiatives I've been part of
           </p>
         </motion.div>
@@ -84,27 +80,27 @@ export default function Organizations() {
               whileHover={{ scale: 1.02 }}
               className="group"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 p-6">
+              <div className="relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all duration-300 p-6">
                 <div className="flex items-start gap-4">
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className="w-14 h-14 rounded-xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0"
+                    className="w-14 h-14 rounded-xl bg-white flex items-center justify-center shrink-0"
                   >
-                    <collab.icon className="text-white" size={28} />
+                    <collab.icon className="text-black" size={28} />
                   </motion.div>
 
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-bold text-white">{collab.title}</h3>
-                      <span className="text-cyan-400 text-sm font-medium whitespace-nowrap ml-2">
+                      <h3 className="text-xl font-bold text-white tracking-tight">{collab.title}</h3>
+                      <span className="text-gray-300 text-sm font-medium whitespace-nowrap ml-2">
                         {collab.date}
                       </span>
                     </div>
-                    <div className="inline-block px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-medium mb-3">
+                    <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-gray-300 text-xs font-medium mb-3">
                       {collab.type}
                     </div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-400 text-sm leading-relaxed font-light">
                       {collab.description}
                     </p>
                   </div>
