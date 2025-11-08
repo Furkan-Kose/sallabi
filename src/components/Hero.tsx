@@ -1,27 +1,29 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
-import { Typewriter } from "react-simple-typewriter";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
+      id="about"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black text-white"
     >
-      {/* Arka plan partikülleri - minimal white dots */}
+
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-white/90 rounded-full"
+            className="absolute w-1 h-1 bg-white/70 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              scale: [1, 1.5, 1],
+              scale: [1, 1.4, 1],
               opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
@@ -33,93 +35,64 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* İçerik */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        {/* Typewriter alanı */}
+      <div
+        ref={ref}
+        className="relative z-10 max-w-7xl w-full px-4 sm:px-6 lg:px-8 pb-24 pt-32 md:py-32 mx-auto"
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-center mb-6"
+          className="text-center mb-16"
         >
-          <Sparkles className="text-white mr-2" size={24} />
-          <span className="text-gray-300 text-xl md:text-2xl font-light">
-            <Typewriter
-              words={["Grafik Tasarımcı", "Kurucu", "Sosyal Medya Yöneticisi"]}
-              loop={true}
-              cursor={false}
-              cursorStyle="|"
-              typeSpeed={80}
-              deleteSpeed={50}
-              delaySpeed={1500}
-            />
-          </span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white tracking-tight">
+            Sallabi
+          </h1>
+          <div className="w-24 h-px bg-white mx-auto" />
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold mb-6 text-white tracking-tight"
-        >
-          Sallabi
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light"
-        >
-          Yaratıcı çözümler sunan çok yönlü bir grafik tasarımcı ve dijital içerik üreticisi.
-        </motion.p>
-
-        {/* Butonlar + aşağı ok */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center relative"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05, opacity: 0.9 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() =>
-              document
-                .getElementById("works")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="px-8 py-4 bg-white text-black rounded-full font-medium transition-all"
-          >
-            Çalışmalarımı Görüntüle
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="px-8 py-4 bg-transparent text-white rounded-full font-medium border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all"
-          >
-            İletişime Geçin
-          </motion.button>
-
-          {/* Aşağı ok */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="absolute -bottom-14 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0, x: -60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ArrowDown className="text-white/40" size={32} />
-            </motion.div>
+            <div className="rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 
+                            flex flex-col items-center justify-center text-center 
+                            h-60 md:h-[340px] p-8 md:p-14">
+              <div className="text-6xl md:text-7xl mb-3">🎨</div>
+              <p className="text-lg md:text-xl text-gray-300 font-medium">
+                Creative Designer
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-6"
+          >
+            <h3 className="text-3xl md:text-4xl font-semibold tracking-tight">
+              Ben Kimim?
+            </h3>
+            <p className="text-gray-300 text-lg leading-relaxed font-light">
+              Merhaba, ben Muhammet Salih Yıldırım. Doğuş Üniversitesi Grafik tasarım mezunuyum ve uzun süredir tasarım, video ve sosyal medya içerikleri üretiyorum. Üretmeyi, bir şeyleri ortaya çıkarmayı ve görsel olarak iyi hissettiren işler yapmayı seviyorum.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="flex justify-center mt-20"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <ArrowDown className="text-white/50" size={32} />
           </motion.div>
         </motion.div>
       </div>

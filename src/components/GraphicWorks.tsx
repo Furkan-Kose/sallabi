@@ -8,13 +8,13 @@ import Video from "yet-another-react-lightbox/plugins/video";
 import "yet-another-react-lightbox/styles.css";
 
 const works = [
-  { image: "/works/13.jpg", video: "/videos/13.MP4" },
-  { image: "/works/15.jpg", video: "/videos/15.MP4" },
-  { image: "/works/17.jpg", video: "/videos/corporate.mp4" },
-  { image: "/works/19.jpg", video: "/videos/character.mp4" },
-  { image: "/works/21.jpg", video: "/videos/poster.mp4" },
-  { image: "/works/22.jpg", video: "/videos/iconset1.mp4" },
-  { image: "/works/24.jpg", video: "/videos/iconset2.mp4" },
+  { image: "/works/13.jpg", video: "/videos/" },
+  { image: "/works/15.jpg", video: "/videos/" },
+  { image: "/works/17.jpg", video: "/videos/" },
+  { image: "/works/19.jpg", video: "/videos/" },
+  { image: "/works/21.jpg", video: "/videos/" },
+  { image: "/works/22.jpg", video: "/videos/" },
+  { image: "/works/24.jpg", video: "/videos/" },
 ];
 
 export default function GraphicWorks() {
@@ -26,7 +26,6 @@ export default function GraphicWorks() {
   return (
     <section id="works" className="py-20 relative overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
-        {/* Başlık ve alt başlık */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -42,7 +41,6 @@ export default function GraphicWorks() {
           </p>
         </motion.div>
 
-        {/* Görseller */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {works.map((work, index) => (
             <motion.div
@@ -71,7 +69,6 @@ export default function GraphicWorks() {
         </div>
       </div>
 
-      {/* Lightbox */}
       {lightboxIndex !== null && (
         <Lightbox
           open={lightboxIndex !== null}

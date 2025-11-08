@@ -23,11 +23,9 @@ const Navbar = () => {
   };
 
   const menuItems = [
-    { id: 'home', label: 'Ana Sayfa' },
-    { id: 'about', label: 'Hakkımda' },
+    { id: 'about', label: 'Ana Sayfa' },
     { id: 'works', label: 'Projeler' },
     { id: 'brands', label: 'Markalar' },
-    { id: 'organizations', label: 'Kuruluşlar' },
     { id: 'cv', label: 'CV' },
     { id: 'contact', label: 'İletişim' },
   ];

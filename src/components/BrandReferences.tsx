@@ -2,14 +2,24 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const brands = Array.from({ length: 12 }, (_, i) => ({
-  name: `Brand ${i + 1}`,
-  image: `/references/${i + 1}.webp`,
-}));
+const brands = [
+  { "name": "yüzyüzeyken konuşuruz", "image": "/references/1.webp" },
+  { "name": "damat tween", "image": "/references/2.webp" },
+  { "name": "inventist", "image": "/references/3.webp" },
+  { "name": "mimar sinan", "image": "/references/4.webp" },
+  { "name": "ilhan doğan", "image": "/references/5.webp" },
+  { "name": "cahide", "image": "/references/6.webp" },
+  { "name": "ogb", "image": "/references/7.webp" },
+  { "name": "revy", "image": "/references/8.webp" },
+  { "name": "porsche", "image": "/references/9.webp" },
+  { "name": "ritmika", "image": "/references/10.webp" },
+  { "name": "altum", "image": "/references/11.webp" },
+  { "name": "pekin", "image": "/references/12.webp" }
+];
 
 export default function BrandReferences() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section id="brands" className="py-20 relative overflow-hidden bg-black">
@@ -29,18 +39,17 @@ export default function BrandReferences() {
           </p>
         </motion.div>
 
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8 }}
+        <div
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         >
-          {brands.map((brand) => (
+          {brands.map((brand, index) => (
             <motion.div
-              key={brand.name}
-              whileHover={{ scale: 1.05 }}
-              className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:border-white/30"
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:border-white/30 group"
             >
               <img
                 src={brand.image}
@@ -49,7 +58,7 @@ export default function BrandReferences() {
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
 
         <motion.div

@@ -65,14 +65,17 @@ export default function CV() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-6 font-light">
             Mesleki geçmiş ve yeterlilikler
           </p>
-          <motion.button
+          <motion.a
+            href="/cv.docx"
+            download="Muhammet-Salih-Yildirim-CV.docx"
             whileHover={{ scale: 1.05, opacity: 0.9 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-medium transition-all"
           >
             <Download size={20} />
             CV İndir
-          </motion.button>
+          </motion.a>
+
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
