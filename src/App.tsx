@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import GraphicWorks from './components/GraphicWorks';
 import BrandReferences from './components/BrandReferences';
 import CV from './components/CV';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
       <Hero />
       <GraphicWorks />
+      <Projects />
       <BrandReferences />
       <CV />
       <Contact />
